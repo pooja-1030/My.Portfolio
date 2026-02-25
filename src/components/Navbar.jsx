@@ -5,9 +5,8 @@ const navLinks = [
     { label: 'About', href: '#about' },
     { label: 'Skills', href: '#skills' },
     { label: 'Projects', href: '#projects' },
-    { label: 'Experience', href: '#experience' },
     { label: 'Education', href: '#education' },
-    { label: 'Achievements', href: '#achievements' },
+    { label: 'Experience', href: '#experience' },
     { label: 'Contact', href: '#contact' },
 ]
 
@@ -46,15 +45,6 @@ export default function Navbar() {
                             </a>
                         </li>
                     ))}
-                    <li>
-                        <a
-                            href="mailto:poojachalam1030@gmail.com"
-                            className="nav-cta"
-                            onClick={() => setMenuOpen(false)}
-                        >
-                            Hire Me
-                        </a>
-                    </li>
                 </ul>
 
                 <button

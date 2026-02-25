@@ -1,17 +1,42 @@
 import { useState } from 'react'
+import { supabase } from '../supabaseClient'
 import './Contact.css'
 
 export default function Contact() {
     const [form, setForm] = useState({ name: '', email: '', message: '' })
     const [sent, setSent] = useState(false)
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null)
 
     const handleChange = e => setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
 
-    const handleSubmit = e => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        setSent(true)
-        setForm({ name: '', email: '', message: '' })
-        setTimeout(() => setSent(false), 4000)
+        setLoading(true)
+        setError(null)
+
+        try {
+            const { data, error: sbError } = await supabase
+                .from('messages')
+                .insert([
+                    {
+                        name: form.name,
+                        email: form.email,
+                        message: form.message,
+                    },
+                ])
+
+            if (sbError) throw sbError
+
+            setSent(true)
+            setForm({ name: '', email: '', message: '' })
+            setTimeout(() => setSent(false), 5000)
+        } catch (err) {
+            console.error('Error sending message:', err)
+            setError('Failed to send message. Please try again or contact me directly via email.')
+        } finally {
+            setLoading(false)
+        }
     }
 
     return (
@@ -27,7 +52,6 @@ export default function Contact() {
                     {/* Info cards */}
                     <div className="contact-info">
                         <div className="contact-card glass-card">
-                            <span className="contact-icon">📧</span>
                             <div>
                                 <h4>Email</h4>
                                 <a href="mailto:poojachalam1030@gmail.com">poojachalam1030@gmail.com</a>
@@ -35,7 +59,6 @@ export default function Contact() {
                         </div>
 
                         <div className="contact-card glass-card">
-                            <span className="contact-icon">💼</span>
                             <div>
                                 <h4>LinkedIn</h4>
                                 <a href="https://www.linkedin.com/in/pooja-gowda-2376a82a4/" target="_blank" rel="noreferrer">linkedin.com/in/pooja-gowda</a>
@@ -43,7 +66,6 @@ export default function Contact() {
                         </div>
 
                         <div className="contact-card glass-card">
-                            <span className="contact-icon">🗂️</span>
                             <div>
                                 <h4>GitHub</h4>
                                 <a href="https://github.com/pooja-1030" target="_blank" rel="noreferrer">github.com/pooja-1030</a>
@@ -81,11 +103,12 @@ export default function Contact() {
                             />
                         </div>
 
-                        <button type="submit" className="btn btn-primary submit-btn">
-                            {sent ? '✓ Message Sent!' : 'Send Message'}
+                        <button type="submit" className="btn btn-primary submit-btn" disabled={loading}>
+                            {loading ? 'Sending...' : sent ? '✓ Message Sent!' : 'Send Message'}
                         </button>
 
-                        {sent && <p className="sent-msg">Thanks! I'll get back to you soon 🎉</p>}
+                        {sent && <p className="sent-msg">Thanks! I'll get back to you soon</p>}
+                        {error && <p className="error-msg" style={{ color: '#ef4444', marginTop: '16px', textAlign: 'center', fontSize: '0.9rem' }}>{error}</p>}
                     </form>
                 </div>
             </div>

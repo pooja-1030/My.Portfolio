@@ -1,10 +1,10 @@
 import './About.css'
 
 const strengths = [
-    { icon: '🎯', title: 'Problem Solver', desc: 'I love breaking down complex problems into clean, efficient solutions.' },
-    { icon: '🎨', title: 'Design-Minded', desc: 'I care deeply about UX and build interfaces that feel as good as they look.' },
-    { icon: '📚', title: 'Continuous Learner', desc: 'Always exploring new technologies and expanding my skill set every day.' },
-    { icon: '🤝', title: 'Team Player', desc: 'I thrive in collaborative environments and contribute positively to any team.' },
+    { title: 'Problem Solver', desc: 'I love breaking down complex problems into clean, efficient solutions.' },
+    { title: 'Design-Minded', desc: 'I care deeply about UX and build interfaces that feel as good as they look.' },
+    { title: 'Continuous Learner', desc: 'Always exploring new technologies and expanding my skill set every day.' },
+    { title: 'Team Player', desc: 'I thrive in collaborative environments and contribute positively to any team.' },
 ]
 
 export default function About() {
@@ -58,7 +58,6 @@ export default function About() {
                     <div className="about-strengths">
                         {strengths.map(s => (
                             <div key={s.title} className="strength-card glass-card">
-                                <span className="strength-icon">{s.icon}</span>
                                 <div>
                                     <h4>{s.title}</h4>
                                     <p>{s.desc}</p>

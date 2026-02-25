@@ -17,12 +17,12 @@ const softSkills = [
 ]
 
 const tools = [
-    { name: 'Git & GitHub', icon: '🗂️' },
-    { name: 'VS Code', icon: '💻' },
-    { name: 'Figma', icon: '🎨' },
-    { name: 'Vite', icon: '⚡' },
-    { name: 'npm / yarn', icon: '📦' },
-    { name: 'Postman', icon: '🔧' },
+    { name: 'Git & GitHub' },
+    { name: 'VS Code' },
+    { name: 'Figma' },
+    { name: 'Vite' },
+    { name: 'npm / yarn' },
+    { name: 'Postman' },
 ]
 
 export default function Skills() {
@@ -92,7 +92,6 @@ export default function Skills() {
                             <div className="tools-grid">
                                 {tools.map(tool => (
                                     <div key={tool.name} className="tool-item">
-                                        <span className="tool-icon">{tool.icon}</span>
                                         <span>{tool.name}</span>
                                     </div>
                                 ))}

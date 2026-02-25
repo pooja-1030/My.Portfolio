@@ -2,6 +2,18 @@ import './Experience.css'
 
 const experiences = [
     {
+        role: 'Software Engineer',
+        company: 'DAXIDO PRIVATE LTD',
+        period: 'Jan 2026 – Present',
+        type: 'Full-time',
+        points: [
+            'Building and maintaining robust web applications using React.js and modern technologies',
+            'Collaborating with cross-functional teams to deliver high-quality software solutions',
+            'Implementing efficient, scalable, and secure frontend components',
+            'Contributing to architecting and improving the UI/UX of internal products',
+        ],
+    },
+    {
         role: 'Frontend Developer Intern',
         company: 'Prodigy Infotech',
         period: 'Jun 2025 – Aug 2025',
