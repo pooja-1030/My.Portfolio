@@ -146,5 +146,26 @@
     .footer-inner {
         grid-template-columns: 1fr;
         gap: 32px;
+        text-align: center;
+    }
+
+    .footer-brand {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-tagline {
+        max-width: 100%;
+    }
+
+    .footer-socials {
+        justify-content: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
     }
 }

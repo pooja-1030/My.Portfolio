@@ -386,6 +386,7 @@
 
     .hero-actions {
         justify-content: center;
+        flex-wrap: wrap;
     }
 
     .hero-socials {

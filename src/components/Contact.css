@@ -148,4 +148,12 @@
     .contact-grid {
         grid-template-columns: 1fr;
     }
+
+    .contact-form {
+        padding: 24px;
+    }
+
+    .contact-card {
+        padding: 20px;
+    }
 }

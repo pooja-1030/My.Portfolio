@@ -121,6 +121,26 @@
     line-height: 1.6;
 }
 
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-visual {
+        order: -1;
+    }
+
+    .story-card {
+        padding: 24px;
+    }
+
+    .about-stats {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
 @media (max-width: 860px) {
     .about-grid {
         grid-template-columns: 1fr;

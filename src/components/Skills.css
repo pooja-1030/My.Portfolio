@@ -140,4 +140,12 @@
     .skills-grid {
         grid-template-columns: 1fr;
     }
+
+    .skills-block {
+        padding: 24px;
+    }
+
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
 }
